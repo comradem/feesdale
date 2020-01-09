@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/feesdale/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/feesdale/static/js/main.ce1a113a.chunk.js",
-    "main.js.map": "/feesdale/static/js/main.ce1a113a.chunk.js.map",
+    "main.js": "/feesdale/static/js/main.900dacc3.chunk.js",
+    "main.js.map": "/feesdale/static/js/main.900dacc3.chunk.js.map",
     "runtime-main.js": "/feesdale/static/js/runtime-main.de5279ab.js",
     "runtime-main.js.map": "/feesdale/static/js/runtime-main.de5279ab.js.map",
-    "static/js/2.ce037d12.chunk.js": "/feesdale/static/js/2.ce037d12.chunk.js",
-    "static/js/2.ce037d12.chunk.js.map": "/feesdale/static/js/2.ce037d12.chunk.js.map",
+    "static/js/2.e726b775.chunk.js": "/feesdale/static/js/2.e726b775.chunk.js",
+    "static/js/2.e726b775.chunk.js.map": "/feesdale/static/js/2.e726b775.chunk.js.map",
     "index.html": "/feesdale/index.html",
-    "precache-manifest.5b9f9f8c41c08b3e71c3fc23b5c0dae0.js": "/feesdale/precache-manifest.5b9f9f8c41c08b3e71c3fc23b5c0dae0.js",
+    "precache-manifest.409c16d17dbd7ab149c9a433c52ee7e6.js": "/feesdale/precache-manifest.409c16d17dbd7ab149c9a433c52ee7e6.js",
     "service-worker.js": "/feesdale/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/feesdale/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.ce037d12.chunk.js.LICENSE": "/feesdale/static/js/2.ce037d12.chunk.js.LICENSE"
+    "static/js/2.e726b775.chunk.js.LICENSE": "/feesdale/static/js/2.e726b775.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.de5279ab.js",
-    "static/js/2.ce037d12.chunk.js",
+    "static/js/2.e726b775.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.ce1a113a.chunk.js"
+    "static/js/main.900dacc3.chunk.js"
   ]
 }
