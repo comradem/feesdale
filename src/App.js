@@ -9,7 +9,7 @@ function App() {
     return (
         <Fragment>
             <Switch>
-                <Route exact path="/" component={MainPage}/>
+                <Route exact path={process.env.PUBLIC_URL + '/'} component={MainPage}/>
                 <Route exact path="/login" component={LoginPage}/>
             </Switch>
         </Fragment>
