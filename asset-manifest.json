@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "https://comradem.github.io/feesdale/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "https://comradem.github.io/feesdale/static/js/main.4aa4c434.chunk.js",
-    "main.js.map": "https://comradem.github.io/feesdale/static/js/main.4aa4c434.chunk.js.map",
+    "main.js": "https://comradem.github.io/feesdale/static/js/main.e2eff60c.chunk.js",
+    "main.js.map": "https://comradem.github.io/feesdale/static/js/main.e2eff60c.chunk.js.map",
     "runtime-main.js": "https://comradem.github.io/feesdale/static/js/runtime-main.131e3fdd.js",
     "runtime-main.js.map": "https://comradem.github.io/feesdale/static/js/runtime-main.131e3fdd.js.map",
     "static/js/2.e726b775.chunk.js": "https://comradem.github.io/feesdale/static/js/2.e726b775.chunk.js",
     "static/js/2.e726b775.chunk.js.map": "https://comradem.github.io/feesdale/static/js/2.e726b775.chunk.js.map",
     "index.html": "https://comradem.github.io/feesdale/index.html",
-    "precache-manifest.950512b7f1d9c2fccca9ca303a5714d6.js": "https://comradem.github.io/feesdale/precache-manifest.950512b7f1d9c2fccca9ca303a5714d6.js",
+    "precache-manifest.cb47994adc0b33abc40f8d598bc4fcde.js": "https://comradem.github.io/feesdale/precache-manifest.cb47994adc0b33abc40f8d598bc4fcde.js",
     "service-worker.js": "https://comradem.github.io/feesdale/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "https://comradem.github.io/feesdale/static/css/main.5ecd60fb.chunk.css.map",
     "static/js/2.e726b775.chunk.js.LICENSE": "https://comradem.github.io/feesdale/static/js/2.e726b775.chunk.js.LICENSE"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.131e3fdd.js",
     "static/js/2.e726b775.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.4aa4c434.chunk.js"
+    "static/js/main.e2eff60c.chunk.js"
   ]
 }
