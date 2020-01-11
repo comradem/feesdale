@@ -10,6 +10,7 @@ function App() {
         <Fragment>
             <Switch>
                 <Route exact path={process.env.PUBLIC_URL + '/'} component={MainPage}/>
+                console.log(process.env.PUBLIC_URL);
                 <Route exact path="/login" component={LoginPage}/>
             </Switch>
         </Fragment>
