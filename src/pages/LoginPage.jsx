@@ -1,13 +1,12 @@
-import React, {Component} from 'react';
+import React, { useState} from 'react';
+import Container from "react-bootstrap/Container";
 
-class LoginPage extends Component {
-    render() {
-        return (
-            <div>
-                Login Page
-            </div>
-        );
-    }
+function LoginPage() {
+    return (
+        <Container>
+            login page
+        </Container>
+    );
 }
 
 export default LoginPage;
