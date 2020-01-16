@@ -39,5 +39,15 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <script src="node_modules/parse/dist/parse.min.js"></script>
+
+    <script>
+      Parse.serverURL = 'https://parseapi.back4app.com'; // This is your Server URL
+      Parse.initialize(
+              'E0g79W7vvsSB3qTiIaxb6YVxxmOX9CFdPHC4aTiT', // This is your Application ID
+              'WpArLflf0Mwc3P8FESzB0d4tlcN8aGw05h9olhYa' // This is your Javascript key
+      );
+    </script>
   </body>
 </html>
