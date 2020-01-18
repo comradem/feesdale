@@ -38,7 +38,7 @@ class LoginPage extends Component {
                     <Form.Group controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Remember me" />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button variant="light" type="submit">
                         Login
                     </Button>
                     {/*<FacebookLogin*/}
