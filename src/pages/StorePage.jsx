@@ -1,18 +1,22 @@
 import React, {Component} from 'react';
 import Container from "react-bootstrap/Container";
 import FDCard from '../components/FDCard'
+import Row from "react-bootstrap/Row";
+import '../styles/store.css'
 
 class StorePage extends Component {
     render() {
         return (
-            <Container>
-                <FDCard/>
-                <FDCard/>
-                <FDCard/>
-                <FDCard/>
-                <FDCard/>
-                <FDCard/>
-                <FDCard/>
+            <Container className='p-store'>
+                <Row>
+                    <FDCard/>
+                    <FDCard/>
+                    <FDCard/>
+                    <FDCard/>
+                    <FDCard/>
+                    <FDCard/>
+                    <FDCard/>
+                </Row>
             </Container>
         );
     }

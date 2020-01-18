@@ -1,14 +1,21 @@
-import React, {Component} from 'react';
-import Container from "react-bootstrap/Container";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
+import React, { Fragment} from 'react';
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import '../styles/main.css'
 
 
 function MainPage() {
         return (
-            <Container>
-                main page
-            </Container>
+            <div className='search-bar'>
+                <Form>
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Control type="email" placeholder="Search ..." />
+                    </Form.Group>
+                    <Button variant="primary" type="submit" className='search-btn'>
+                        Search
+                    </Button>
+                </Form>
+            </div>
         );
 }
 
