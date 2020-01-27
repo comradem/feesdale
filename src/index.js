@@ -9,8 +9,8 @@ import Parse from "parse";
 
 Parse.serverURL = 'https://parseapi.back4app.com'; // This is your Server URL
 Parse.initialize(
-    'E0g79W7vvsSB3qTiIaxb6YVxxmOX9CFdPHC4aTiT', // This is your Application ID
-    'WpArLflf0Mwc3P8FESzB0d4tlcN8aGw05h9olhYa' // This is your Javascript key
+    'LZLxqqmf8QrOsF2rSZcmXr71VCM6h6YDBeIAvQnN', // This is your Application ID
+    'DN4sDSO2hjOyYfGNa0tlOPB7DGl7T6tgrzg2A1BB' // This is your Javascript key
 );
 ReactDOM.render(<Router basename={process.env.PUBLIC_URL}><App /></Router>, document.getElementById('root'));
 

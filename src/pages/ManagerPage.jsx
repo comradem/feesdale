@@ -15,27 +15,25 @@ class ManagerPage extends Component {
     }
 
 
-    handleFiles = async(files) => {
-        let reader = new FileReader();
+    handleFiles = (files) => {
+        var reader = new FileReader();
         reader.onload = function (e) {
             // Use reader.result
-
-            let rawData = reader.result;
-
+            // let rawData = reader.result;
             let data =  processDataFromFile(reader.result);
-
-
         };
-        // console.log('FILES******'+files);
-
         reader.readAsText(files[0]);
+
+        this.setState({
+            data : reader.result
+        });
+        console.log('endede');
     };
 
     loadFile = () => {
-        console.log('should load from file');
-        this.setState({
-            data: []
-        })
+        // this.setState({
+        //     data: []
+        // })
     };
 
     addItem = () => {
@@ -44,11 +42,16 @@ class ManagerPage extends Component {
 
 
     render() {
+        const {data} = this.state;
+        console.log('the state is: '+data);
         return (
             <Container>
                 <ReactFileReader handleFiles={this.handleFiles} fileTypes={'.csv'}>
-                    <Button onClick={this.loadFile}>Load File</Button>
+                    <Button>Load File</Button>
                 </ReactFileReader>
+                <br/>
+                <br/>
+                {data}
             </Container>
         );
     }

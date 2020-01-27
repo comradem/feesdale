@@ -11,7 +11,7 @@ class FDCard extends Component {
                 <Card.Body>
                     <Card.Title>{this.props.dataObject.productName}</Card.Title>
                     <Card.Text>
-                        {this.props.dataObject.productDescription}
+                        {this.props.dataObject.productName}
                     </Card.Text>
                     <Button variant="primary">Add + </Button>
                 </Card.Body>
