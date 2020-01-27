@@ -10,6 +10,7 @@ import FDNavigation from "../src/components/FDNavigation";
 import StorePage from "../src/pages/StorePage";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FDBasketPage from "../src/pages/FDBasketPage";
+import ManagerPage from "../src/pages/ManagerPage";
 // import FdFooter from "../src/components/FDFooter";
 
 
@@ -25,6 +26,7 @@ function App() {
                 <Route exact path='/store' component={StorePage}/>
                 <Route exact path="/login" component={LoginPage}/>
                 <Route exact path='/basket' component={FDBasketPage}/>
+                <Route exact path='/manager' component={ManagerPage}/>
             </Switch>
             {/*<FdFooter/>*/}
         </Fragment>
