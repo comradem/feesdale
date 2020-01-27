@@ -13,22 +13,12 @@ class LoginPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isAuthenticated : false,
-            compareTo : 'aa'  //temporary -- should authenticate against server
+            isAuthenticated : false
         }
     }
 
     handleSubmit = () => {
         const {email, password} = this.state;
-        if(`${email}${password}` === this.state.compareTo) {
-
-            this.setState({
-                isAuthenticated : true
-            })
-        }
-
-
-
         // const user = new Parse.User();
         // user.set('username', email);
         // user.set('email', email);
@@ -42,20 +32,20 @@ class LoginPage extends Component {
         //     console.error('Error while signing up user', error);
         // });
 
-
         //Pass the username and password to logIn function
-        debugger;
         Parse.User.logIn(email,password).then((user) => {
-            debugger;
-            console.log('user is :' + user);
             // Do stuff after successful login
-            if (typeof document !== 'undefined') document.write(`Logged in user: ${JSON.stringify(user)}`);
-            console.log('Logged in user', user);
+
+            this.setState({
+                isAuthenticated : true
+            });
+            // if (typeof document !== 'undefined') {
+            //     document.write(`Logged in user: ${JSON.stringify(user)}`);
+            // }
         }).catch(error => {
-            debugger;
-            if (typeof document !== 'undefined') {
-                console.error(`Error while logging in user: ${JSON.stringify(error)}`);
-            }
+            // if (typeof document !== 'undefined') {
+            //     console.error(`Error while logging in user: ${JSON.stringify(error)}`);
+            // }
             console.error('Error while logging in user', error);
         });
     };
@@ -69,6 +59,7 @@ class LoginPage extends Component {
     render(){
         if (this.state.isAuthenticated === true) {
             console.log('i am authenticated, redirect me to next page');
+            this.props.history.push('/manager');
         }
         const {email, password} = this.state;
         return (
