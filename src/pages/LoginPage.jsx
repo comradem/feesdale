@@ -27,11 +27,7 @@ class LoginPage extends Component {
             })
         }
 
-        Parse.serverURL = 'https://parseapi.back4app.com'; // This is your Server URL
-        Parse.initialize(
-            'E0g79W7vvsSB3qTiIaxb6YVxxmOX9CFdPHC4aTiT', // This is your Application ID
-            'WpArLflf0Mwc3P8FESzB0d4tlcN8aGw05h9olhYa' // This is your Javascript key
-        );
+
 
         // const user = new Parse.User();
         // user.set('username', email);
@@ -48,13 +44,15 @@ class LoginPage extends Component {
 
 
         //Pass the username and password to logIn function
-        Parse.User.logIn(email,password, {email : email}).then((user) => {
-
+        debugger;
+        Parse.User.logIn(email,password).then((user) => {
+            debugger;
             console.log('user is :' + user);
             // Do stuff after successful login
             if (typeof document !== 'undefined') document.write(`Logged in user: ${JSON.stringify(user)}`);
             console.log('Logged in user', user);
         }).catch(error => {
+            debugger;
             if (typeof document !== 'undefined') {
                 console.error(`Error while logging in user: ${JSON.stringify(error)}`);
             }
@@ -71,7 +69,6 @@ class LoginPage extends Component {
     render(){
         if (this.state.isAuthenticated === true) {
             console.log('i am authenticated, redirect me to next page');
-
         }
         const {email, password} = this.state;
         return (

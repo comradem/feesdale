@@ -3,14 +3,18 @@ import pic from '../images/magn-glass.png'
 
 export default class FDObjectModel {
     constructor() {
-        this.id = 0;
+        this.categoryName = '';
         this.categoryId = '123456789';
         this.productName = 'dummy object';
         this.productId = '9876543210';
         this.productImage = pic;
-        this.allImages = [];
+        this.productAllImages = pic;
         this.productUrl = 'address';
-        this.price = 0.0;
+        this.originalPrice = 0;
+        this.salePrice = 0;
+        this.commissionRate = 0;
+        this.outOfStock = '';
+        this.discount = 0;
         this.clickUrl = 'https://google.com';
     }
 }
