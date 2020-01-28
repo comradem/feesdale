@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import ReactFileReader from 'react-file-reader';
-import {processDataFromFile} from '../utils/utils'
+import {processDataFromFile} from '../utils/utils';
+import Parse from 'parse';
+import FDObjectModel from "../orm/FDObjectModel";
 
 class ManagerPage extends Component {
 
@@ -16,18 +18,33 @@ class ManagerPage extends Component {
 
 
     handleFiles = (files) => {
-        var reader = new FileReader();
+        let reader = new FileReader();
         reader.onload = function (e) {
-            // Use reader.result
-            // let rawData = reader.result;
-            let data =  processDataFromFile(reader.result);
+            let data = processDataFromFile(reader.result);
+            // write data to db
+            const props = Object.getOwnPropertyNames(new FDObjectModel());
+            const NewParseObject = Parse.Object.extend('FDObjectModel', null, props);
+
+            let dataToSave = data.map(item => {
+                const myNewObject = new NewParseObject();
+                for (let i = 0; i < props.length; i++) {
+                    myNewObject.set(props[i], item[`${props[i]}`]);
+                }
+                return myNewObject;
+            });
+            Parse.Object.saveAll(dataToSave).then(
+                (result) => {
+                    if (typeof document !== 'undefined')
+                        console.log('ParseObject created', result);
+                },
+                (error) => {
+                    if (typeof document !== 'undefined')
+                        console.error('Error while creating ParseObject: ', error);
+                }
+            );
+
         };
         reader.readAsText(files[0]);
-
-        this.setState({
-            data : reader.result
-        });
-        console.log('endede');
     };
 
     loadFile = () => {
@@ -43,7 +60,7 @@ class ManagerPage extends Component {
 
     render() {
         const {data} = this.state;
-        console.log('the state is: '+data);
+        console.log('the state is: ' + data);
         return (
             <Container>
                 <ReactFileReader handleFiles={this.handleFiles} fileTypes={'.csv'}>

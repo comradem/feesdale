@@ -1,4 +1,3 @@
-import pic from '../images/magn-glass.png'
 
 
 export default class FDObjectModel {
@@ -7,14 +6,14 @@ export default class FDObjectModel {
         this.categoryId = '123456789';
         this.productName = 'dummy object';
         this.productId = '9876543210';
-        this.productImage = pic;
-        this.productAllImages = pic;
+        this.productImage = '';
+        this.productAllImages = '';
         this.productUrl = 'address';
-        this.originalPrice = 0;
-        this.salePrice = 0;
-        this.commissionRate = 0;
+        this.originalPrice = '';
+        this.salePrice = '';
+        this.commissionRate = '';
         this.outOfStock = '';
-        this.discount = 0;
+        this.discount = '';
         this.clickUrl = 'https://google.com';
     }
 }

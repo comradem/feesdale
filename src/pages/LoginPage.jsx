@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
 import '../styles/login.css'
 
-import Parse from 'parse'
+import Parse from 'parse';
 
 // import FacebookLogin from 'react-facebook-login';
 
@@ -19,34 +19,14 @@ class LoginPage extends Component {
 
     handleSubmit = () => {
         const {email, password} = this.state;
-        // const user = new Parse.User();
-        // user.set('username', email);
-        // user.set('email', email);
-        // user.set('password', password);
-        //
-        // user.signUp().then((user) => {
-        //     if (typeof document !== 'undefined') document.write(`User signed up: ${JSON.stringify(user)}`);
-        //     console.log('User signed up', user);
-        // }).catch(error => {
-        //     if (typeof document !== 'undefined') document.write(`Error while signing up user: ${JSON.stringify(error)}`);
-        //     console.error('Error while signing up user', error);
-        // });
-
         //Pass the username and password to logIn function
         Parse.User.logIn(email,password).then((user) => {
             // Do stuff after successful login
-
             this.setState({
                 isAuthenticated : true
             });
-            // if (typeof document !== 'undefined') {
-            //     document.write(`Logged in user: ${JSON.stringify(user)}`);
-            // }
         }).catch(error => {
-            // if (typeof document !== 'undefined') {
-            //     console.error(`Error while logging in user: ${JSON.stringify(error)}`);
-            // }
-            console.error('Error while logging in user', error);
+            // console.error('Error while logging in user', error);
         });
     };
 
@@ -58,7 +38,6 @@ class LoginPage extends Component {
 
     render(){
         if (this.state.isAuthenticated === true) {
-            console.log('i am authenticated, redirect me to next page');
             this.props.history.push('/manager');
         }
         const {email, password} = this.state;
