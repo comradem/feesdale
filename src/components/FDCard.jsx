@@ -18,7 +18,7 @@ class FDCard extends Component {
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                    <Button variant="primary" onClick={addItemToBasket(productId)}>Add + </Button>
+                    <Button variant="primary" onClick={(ev) => addItemToBasket(ev, productId)}>Add + </Button>
                 </Card.Footer>
             </Card>
         );

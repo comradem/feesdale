@@ -15,21 +15,20 @@ import Parse from 'parse';
 import FDObjectModel from '../src/orm/FDObjectModel'
 
 
-
 class App extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            storeData : [],
-            basket : []
+            storeData: [],
+            basket: []
         }
     }
 
 
     async componentDidMount(): void {
         let objProps = Object.getOwnPropertyNames(new FDObjectModel());
-        const NewParseObject = Parse.Object.extend('FDObjectModel',null,objProps);
+        const NewParseObject = Parse.Object.extend('FDObjectModel', null, objProps);
         const query = new Parse.Query(NewParseObject);
         let res = await query.find().then((results) => {
             if (typeof document !== 'undefined') {
@@ -41,26 +40,34 @@ class App extends Component {
                 return [];
             }
         });
-        let ans = res.map( item => new FDObjectModel(item.attributes));
+        let ans = res.map(item => new FDObjectModel(item.attributes));
         this.setState({
-            storeData : ans
+            storeData: ans
         });
     }
-    addItem =(event,productId) => {
-        console.log('clicked on: '+productId);
+
+    addItem = (event, productId) => {
+        console.log('clicked on: ' + productId);
+        this.setState({
+            basket : this.state.basket.concat(productId)
+        });
+        console.log('current items in basket'+this.state.basket);
     };
-
-
+    
     render() {
+        const {storeData, basket} = this.state;
+        const count = basket.length;
         return (
             <Fragment>
-                <FDNavigation/>
+                <FDNavigation numOfSelectedItems={count}/>
                 <Switch>
                     <Route exact path={process.env.PUBLIC_URL + '/'} component={MainPage}/>
-                    <Route exact path='/store' render={(props) => <StorePage {...props} storeData={this.state.storeData} addItemToBasket={this.addItem}/>}/>
+                    <Route exact path='/store' render={(props) => <StorePage {...props} storeData={storeData}
+                                                                             addItemToBasket={this.addItem}/>}/>
                     <Route exact path="/login" component={LoginPage}/>
                     <Route exact path='/basket' component={FDBasketPage}/>
-                    <Route exact path='/manager' render={(props) => <ManagerPage {...props} storeData={this.state.storeData}/>}/>
+                    <Route exact path='/manager'
+                           render={(props) => <ManagerPage {...props} storeData={storeData}/>}/>
                 </Switch>
                 {/*<FdFooter/>*/}
             </Fragment>

@@ -2,5 +2,9 @@
 .search-bar-input {
     display: flex;
     justify-content: center;
+}
 
+
+.hidden {
+    display: none;
 }
