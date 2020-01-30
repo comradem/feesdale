@@ -1,19 +1,17 @@
-
-
 export default class FDObjectModel {
-    constructor() {
-        this.categoryName = '';
-        this.categoryId = '123456789';
-        this.productName = 'dummy object';
-        this.productId = '9876543210';
-        this.productImage = '';
-        this.productAllImages = '';
-        this.productUrl = 'address';
-        this.originalPrice = '';
-        this.salePrice = '';
-        this.commissionRate = '';
-        this.outOfStock = '';
-        this.discount = '';
-        this.clickUrl = 'https://google.com';
+    constructor(arr) {
+        this.categoryName = arr ? arr.categoryName : '';
+        this.categoryId = arr ? arr.categoryId : '';
+        this.productName = arr ? arr.productName : '';
+        this.productId = arr ? arr.productId : '';
+        this.productImage = arr ? arr.productImage : '';
+        this.productAllImages = arr ? arr.productAllImages.split(',') : '';
+        this.productUrl = arr ? arr.productUrl : '';
+        this.originalPrice = arr ? arr.originalPrice : '';
+        this.salePrice = arr ? arr.salePrice : '';
+        this.commissionRate = arr ? arr.commissionRate : '';
+        this.outOfStock = arr ? arr.outOfStock : '';
+        this.discount = arr ? arr.discount : '';
+        this.clickUrl = arr ? arr.clickUrl : '';
     }
 }

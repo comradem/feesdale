@@ -16,7 +16,6 @@ class ManagerPage extends Component {
         }
     }
 
-
     handleFiles = (files) => {
         let reader = new FileReader();
         reader.onload = function (e) {
@@ -47,20 +46,8 @@ class ManagerPage extends Component {
         reader.readAsText(files[0]);
     };
 
-    loadFile = () => {
-        // this.setState({
-        //     data: []
-        // })
-    };
-
-    addItem = () => {
-        console.log('add item');
-    };
-
-
     render() {
         const {data} = this.state;
-        console.log('the state is: ' + data);
         return (
             <Container>
                 <ReactFileReader handleFiles={this.handleFiles} fileTypes={'.csv'}>

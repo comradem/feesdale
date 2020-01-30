@@ -5,16 +5,21 @@ import '../styles/fd-card.css'
 
 class FDCard extends Component {
     render() {
+        const {productImage,productName,productId} = this.props.dataObject;
+        const {addItemToBasket} = this.props;
+        // debugger;
         return (
             <Card style={{ width: '18rem' }} className='fd-card'>
-                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Img variant="top" src={productImage} />
                 <Card.Body>
-                    <Card.Title>{this.props.dataObject.productName}</Card.Title>
+                    <Card.Title>{productName}</Card.Title>
                     <Card.Text>
-                        {this.props.dataObject.productName}
+                        {productName}
                     </Card.Text>
-                    <Button variant="primary">Add + </Button>
                 </Card.Body>
+                <Card.Footer>
+                    <Button variant="primary" onClick={addItemToBasket(productId)}>Add + </Button>
+                </Card.Footer>
             </Card>
         );
     }
