@@ -3,19 +3,26 @@ import FdBasketItem from "../components/FDBasketItem";
 
 
 class FDBasketPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: []
+        }
+    }
+    componentDidMount() {
+        if (this.props.basket){
+            this.setState({
+                data:this.props.basket
+            })
+        }
+    }
+
     render() {
+        let basket = this.props.basket;
+        let data = basket.map((item, index) => <FdBasketItem key={index} dataObject={item}/>);
         return (
             <Fragment>
-                <FdBasketItem/>
-                <FdBasketItem/>
-                <FdBasketItem/>
-                <FdBasketItem/>
-                <FdBasketItem/>
-                <FdBasketItem/>
-                <FdBasketItem/>
-                <FdBasketItem/>
-                <FdBasketItem/>
-
+                {data}
             </Fragment>
         );
     }

@@ -25,7 +25,6 @@ class App extends Component {
         }
     }
 
-
     async componentDidMount(): void {
         let objProps = Object.getOwnPropertyNames(new FDObjectModel());
         const NewParseObject = Parse.Object.extend('FDObjectModel', null, objProps);
@@ -44,28 +43,29 @@ class App extends Component {
         this.setState({
             storeData: ans
         });
+
     }
 
-    addItem = (event, productId) => {
-        console.log('clicked on: ' + productId);
+    addItem = (event, productObject) => {
         this.setState({
-            basket : this.state.basket.concat(productId)
+            basket: this.state.basket.concat(productObject)
         });
-        console.log('current items in basket'+this.state.basket);
     };
-    
+
     render() {
-        const {storeData, basket} = this.state;
-        const count = basket.length;
+        const {storeData} = this.state;
+        const count = this.state.basket.length;
         return (
             <Fragment>
-                <FDNavigation numOfSelectedItems={count}/>
+                <FDNavigation numOfSelectedItems={count} basket={this.state.basket}/>
                 <Switch>
                     <Route exact path={process.env.PUBLIC_URL + '/'} component={MainPage}/>
                     <Route exact path='/store' render={(props) => <StorePage {...props} storeData={storeData}
-                                                                             addItemToBasket={this.addItem}/>}/>
+                                                                             addItemToBasket={this.addItem}
+                                                                             basket={this.state.basket}/>}/>
                     <Route exact path="/login" component={LoginPage}/>
-                    <Route exact path='/basket' component={FDBasketPage}/>
+                    <Route exact path='/basket' render={(props) => <FDBasketPage {...props}
+                                                                                 basket={this.state.basket}/>}/>
                     <Route exact path='/manager'
                            render={(props) => <ManagerPage {...props} storeData={storeData}/>}/>
                 </Switch>

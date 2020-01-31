@@ -13,5 +13,6 @@ export default class FDObjectModel {
         this.outOfStock = arr ? arr.outOfStock : '';
         this.discount = arr ? arr.discount : '';
         this.clickUrl = arr ? arr.clickUrl : '';
+        this.selected = false;
     }
 }

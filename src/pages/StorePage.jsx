@@ -4,7 +4,6 @@ import FDCard from '../components/FDCard'
 import '../styles/store.css'
 
 class StorePage extends Component {
-
     render() {
         let {storeData, addItemToBasket} = this.props;
         let data = storeData.map((item, index) => <FDCard key={index} dataObject={item}

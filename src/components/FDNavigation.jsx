@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link, withRouter} from 'react-router-dom'
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import '../styles/navigation.css'
@@ -6,15 +7,14 @@ import imgBasket from '../images/shopping-cart24x24.png'
 import Badge from "react-bootstrap/Badge";
 
 class FDNavigation extends Component {
-
-
     render() {
         let hide = 'hidden';
         if (this.props.numOfSelectedItems !== 0) {
             hide = ''
         }
+        // console.log(this.props);
         return (
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar className='sticky-top' collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Navbar.Brand href="/">M&S</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse id="responsive-navbar-nav">
@@ -25,7 +25,12 @@ class FDNavigation extends Component {
                     </Nav>
                     <input type="text" placeholder='search' className='search-bar-input'/>
                     <Nav>
-                        <Nav.Link eventKey={2} href="/basket">
+                        {/*<Nav.Link as={Link} href="/">Home</Nav.Link>*/}
+                        <Nav.Link href='/basket' as={Link} to={
+                            {
+                                pathname: '/basket'
+                            }
+                        }>
                             <Badge className={`badge badge-pill badge-danger ${hide}`} variant="danger">{this.props.numOfSelectedItems}</Badge>
                             <span className='img_bg'><img src={imgBasket} alt="basket"/></span>
                         </Nav.Link>
@@ -39,4 +44,4 @@ class FDNavigation extends Component {
     }
 }
 
-export default FDNavigation;
+export default withRouter(FDNavigation);
