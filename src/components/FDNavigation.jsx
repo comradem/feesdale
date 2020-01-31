@@ -12,10 +12,13 @@ class FDNavigation extends Component {
         if (this.props.numOfSelectedItems !== 0) {
             hide = ''
         }
-        // console.log(this.props);
         return (
             <Navbar className='sticky-top' collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Navbar.Brand href="/">M&S</Navbar.Brand>
+                <Navbar.Brand as={Link} to={
+                    {
+                        pathname: '/'
+                    }
+                }>M&S</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
@@ -25,16 +28,20 @@ class FDNavigation extends Component {
                     </Nav>
                     <input type="text" placeholder='search' className='search-bar-input'/>
                     <Nav>
-                        {/*<Nav.Link as={Link} href="/">Home</Nav.Link>*/}
-                        <Nav.Link href='/basket' as={Link} to={
+                        <Nav.Link as={Link} to={
                             {
                                 pathname: '/basket'
                             }
                         }>
-                            <Badge className={`badge badge-pill badge-danger ${hide}`} variant="danger">{this.props.numOfSelectedItems}</Badge>
+                            <Badge className={`badge badge-pill badge-danger ${hide}`}
+                                   variant="danger">{this.props.numOfSelectedItems}</Badge>
                             <span className='img_bg'><img src={imgBasket} alt="basket"/></span>
                         </Nav.Link>
-                        <Nav.Link eventKey={2} href="/login">
+                        <Nav.Link as={Link} to={
+                            {
+                                pathname: '/login'
+                            }
+                        }>
                             Sign up
                         </Nav.Link>
                     </Nav>
