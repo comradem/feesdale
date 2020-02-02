@@ -23,23 +23,23 @@ class ManagerPage extends Component {
             // write data to db
             const propNames = Object.getOwnPropertyNames(new FDObjectModel());
             const NewParseObject = Parse.Object.extend('FDObjectModel', null, propNames);
-            let dataToSave = data.map(item => {
+            let dataToSave = data.map((item,index) => {
                 const myNewObject = new NewParseObject();
                 for (let i = 0; i < propNames.length; i++) {
                     myNewObject.set(propNames[i], item[`${propNames[i]}`]);
-                    //adding some search words
-                    if (i%17 === 0) {
-                        myNewObject.set('searchKeywords', [1,'dress','cloth']);
-                    }
-                    if (i%23 === 0){
-                        myNewObject.set('searchKeywords', [1,'gadget']);
-                    }
-                    if (i%7 === 0){
-                        myNewObject.set('searchKeywords', [1,'bike','test']);
-                    }
-                    if (i%131 === 0) {
-                        myNewObject.set('searchKeywords', [1, 'best','item']);
-                    }
+                }
+                //adding some search words
+                if (index%17 === 0) {
+                    myNewObject.set('searchKeywords', [1,'dress','cloth']);
+                }
+                if (index%23 === 0){
+                    myNewObject.set('searchKeywords', [1,'gadget']);
+                }
+                if (index%7 === 0){
+                    myNewObject.set('searchKeywords', [1,'bike','test']);
+                }
+                if (index%131 === 0) {
+                    myNewObject.set('searchKeywords', [1, 'best','item']);
                 }
                 return myNewObject;
             });
