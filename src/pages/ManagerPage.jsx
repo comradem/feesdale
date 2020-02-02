@@ -21,16 +21,29 @@ class ManagerPage extends Component {
         reader.onload = function (e) {
             let data = processDataFromFile(reader.result);
             // write data to db
-            const props = Object.getOwnPropertyNames(new FDObjectModel());
-            const NewParseObject = Parse.Object.extend('FDObjectModel', null, props);
-
+            const propNames = Object.getOwnPropertyNames(new FDObjectModel());
+            const NewParseObject = Parse.Object.extend('FDObjectModel', null, propNames);
             let dataToSave = data.map(item => {
                 const myNewObject = new NewParseObject();
-                for (let i = 0; i < props.length; i++) {
-                    myNewObject.set(props[i], item[`${props[i]}`]);
+                for (let i = 0; i < propNames.length; i++) {
+                    myNewObject.set(propNames[i], item[`${propNames[i]}`]);
+                    //adding some search words
+                    if (i%17 === 0) {
+                        myNewObject.set('searchKeywords', [1,'dress','cloth']);
+                    }
+                    if (i%23 === 0){
+                        myNewObject.set('searchKeywords', [1,'gadget']);
+                    }
+                    if (i%7 === 0){
+                        myNewObject.set('searchKeywords', [1,'bike','test']);
+                    }
+                    if (i%131 === 0) {
+                        myNewObject.set('searchKeywords', [1, 'best','item']);
+                    }
                 }
                 return myNewObject;
             });
+            debugger
             Parse.Object.saveAll(dataToSave).then(
                 (result) => {
                     if (typeof document !== 'undefined')
@@ -45,7 +58,6 @@ class ManagerPage extends Component {
         };
         reader.readAsText(files[0]);
     };
-
     render() {
         const {data} = this.state;
         return (
