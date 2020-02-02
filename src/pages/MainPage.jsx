@@ -9,7 +9,7 @@ class MainPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            searchField : ''
+            searchText : ''
         }
     }
 
@@ -17,15 +17,16 @@ class MainPage extends Component {
     handleSearchInput = (event) => {
         // this.props.searchText = event.target.value;
         this.setState({
-            searchField : event.target.value
+            searchText : event.target.value
         })
     };
 
-
     handleSearch = () => {
-        let filtered = this.props.searchData.filter(item => item.searchKeywords.join(" ").includes(this.state.searchField));
-        this.props.history.push('/store',filtered);
+        this.props.history.push({
+            pathname: `/store/search?${this.state.searchText}`,
+        });
     };
+
 
 
     render() {

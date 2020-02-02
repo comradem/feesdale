@@ -40,9 +40,7 @@ class App extends Component {
             }
         });
         let ans = res.map(item => {
-            console.log('item: '+item.attributes);
             return new FDObjectModel(item.attributes)});
-        console.log(res);
         this.setState({
             storeData: ans
         });
@@ -63,7 +61,10 @@ class App extends Component {
                 <FDNavigation numOfSelectedItems={count} basket={this.state.basket}/>
                 <Switch>
                     <Route exact path={process.env.PUBLIC_URL + '/'} render={(props) => <MainPage {...props} searchData={storeData}/>}/>
-                    <Route exact path='/store' render={(props) => <StorePage {...props} storeData={storeData}
+                    <Route  exact path={`/store`} render={(props) => <StorePage {...props} storeData={storeData}
+                                                                                             addItemToBasket={this.addItem}
+                                                                                             basket={this.state.basket}/>}/>
+                    <Route  exact path={`/store/search?:searchText`} render={(props) => <StorePage {...props} storeData={storeData}
                                                                              addItemToBasket={this.addItem}
                                                                              basket={this.state.basket}/>}/>
                     <Route exact path="/login" component={LoginPage}/>

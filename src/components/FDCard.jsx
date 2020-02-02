@@ -5,8 +5,7 @@ import '../styles/fd-card.css'
 
 class FDCard extends Component {
     render() {
-        const {productImage,productName,searchKeywords} = this.props.dataObject;
-        console.log(searchKeywords);
+        const {productImage,productName,searchKeywords, originalPrice} = this.props.dataObject;
         const {addItemToBasket} = this.props;
         return (
             <Card style={{ width: '18rem' }} className='fd-card'>
@@ -14,7 +13,7 @@ class FDCard extends Component {
                 <Card.Body>
                     <Card.Title>{productName}</Card.Title>
                     <Card.Text>
-                        {productName}
+                        {originalPrice}$
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer>
