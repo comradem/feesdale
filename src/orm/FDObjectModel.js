@@ -14,6 +14,6 @@ export default class FDObjectModel {
         this.discount = arr ? arr.discount : '';
         this.clickUrl = arr ? arr.clickUrl : '';
         this.selected = false;
-        this.searchKeywords = [];
+        this.searchKeywords = arr ? arr.searchKeywords : [];
     }
 }

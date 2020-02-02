@@ -39,7 +39,10 @@ class App extends Component {
                 return [];
             }
         });
-        let ans = res.map(item => new FDObjectModel(item.attributes));
+        let ans = res.map(item => {
+            console.log('item: '+item.attributes);
+            return new FDObjectModel(item.attributes)});
+        console.log(res);
         this.setState({
             storeData: ans
         });
@@ -59,7 +62,7 @@ class App extends Component {
             <Fragment>
                 <FDNavigation numOfSelectedItems={count} basket={this.state.basket}/>
                 <Switch>
-                    <Route exact path={process.env.PUBLIC_URL + '/'} component={MainPage}/>
+                    <Route exact path={process.env.PUBLIC_URL + '/'} render={(props) => <MainPage {...props} searchData={storeData}/>}/>
                     <Route exact path='/store' render={(props) => <StorePage {...props} storeData={storeData}
                                                                              addItemToBasket={this.addItem}
                                                                              basket={this.state.basket}/>}/>
