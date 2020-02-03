@@ -17,8 +17,15 @@ class FDBasketPage extends Component {
         }
     }
 
+    removeItem = (itemId) => {
+        let newBasket = this.state.data.filter(item => item.productId !== itemId);
+        this.setState({data : newBasket});
+        const {updateBasket} = this.props;
+        updateBasket(newBasket);
+    };
+
     render() {
-        let data = this.state.data.map((item, index) => <FdBasketItem key={index} dataObject={item}/>);
+        let data = this.state.data.map((item, index) => <FdBasketItem key={index} dataObject={item} removeItem={this.removeItem}/>);
         return (
             <Fragment>
                 {data}

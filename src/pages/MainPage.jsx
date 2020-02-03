@@ -35,7 +35,6 @@ class MainPage extends Component {
                     <Form.Group controlId="formSearch">
                         <Form.Control type="text" placeholder="Search ..." onChange={this.handleSearchInput}
                                       onKeyDown={event => {
-                                          // debugger
                                           return event.key === 'Enter' ? this.handleSearch : this.handleSearchInput
                                       }}/>
                     </Form.Group>

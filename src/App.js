@@ -40,7 +40,8 @@ class App extends Component {
             }
         });
         let ans = res.map(item => {
-            return new FDObjectModel(item.attributes)});
+            return new FDObjectModel(item.attributes)
+        });
         this.setState({
             storeData: ans
         });
@@ -53,23 +54,31 @@ class App extends Component {
         });
     };
 
+    updateBasket = (newData) => {
+        this.setState({basket: newData})
+    };
+
     render() {
-        const {storeData} = this.state;
+        const {storeData,basket} = this.state;
         const count = this.state.basket.length;
         return (
             <Fragment>
                 <FDNavigation numOfSelectedItems={count} basket={this.state.basket}/>
                 <Switch>
-                    <Route exact path={process.env.PUBLIC_URL + '/'} render={(props) => <MainPage {...props} searchData={storeData}/>}/>
-                    <Route  exact path={`/store`} render={(props) => <StorePage {...props} storeData={storeData}
-                                                                                             addItemToBasket={this.addItem}
-                                                                                             basket={this.state.basket}/>}/>
-                    <Route  exact path={`/store/search?:searchText`} render={(props) => <StorePage {...props} storeData={storeData}
-                                                                             addItemToBasket={this.addItem}
-                                                                             basket={this.state.basket}/>}/>
+                    <Route exact path={process.env.PUBLIC_URL + '/'}
+                           render={(props) => <MainPage {...props} searchData={storeData}/>}/>
+                    <Route exact path={`/store`} render={(props) => <StorePage {...props} storeData={storeData}
+                                                                               addItemToBasket={this.addItem}
+                                                                               basket={basket}/>}/>
+                    <Route exact path={`/store/search?:searchText`}
+                           render={(props) => <StorePage {...props} storeData={storeData}
+                                                         addItemToBasket={this.addItem}
+                                                         basket={basket}/>}/>
                     <Route exact path="/login" component={LoginPage}/>
                     <Route exact path='/basket' render={(props) => <FDBasketPage {...props}
-                                                                                 basket={this.state.basket}/>}/>
+                                                                                 basket={basket}
+                                                                                 updateBasket={this.updateBasket}
+                    />}/>
                     <Route exact path='/manager'
                            render={(props) => <ManagerPage {...props} storeData={storeData}/>}/>
                 </Switch>
