@@ -22,9 +22,17 @@ class FDNavigation extends Component {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="/store">Store</Nav.Link>
+                        <Nav.Link as={Link} to={
+                            {
+                                pathname: '/store'
+                            }
+                        }>Store</Nav.Link>
                         {/*<Nav.Link href="/search">Search</Nav.Link>*/}
-                        <Nav.Link href="/about">About</Nav.Link>
+                        <Nav.Link as={Link} to={
+                            {
+                                pathname: '/about'
+                            }
+                        }>About</Nav.Link>
                     </Nav>
                     <input type="text" placeholder='search' className='search-bar-input'/>
                     <Nav>

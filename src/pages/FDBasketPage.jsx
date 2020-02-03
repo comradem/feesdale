@@ -18,8 +18,7 @@ class FDBasketPage extends Component {
     }
 
     render() {
-        let basket = this.props.basket;
-        let data = basket.map((item, index) => <FdBasketItem key={index} dataObject={item}/>);
+        let data = this.state.data.map((item, index) => <FdBasketItem key={index} dataObject={item}/>);
         return (
             <Fragment>
                 {data}
