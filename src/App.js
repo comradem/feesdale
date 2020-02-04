@@ -21,7 +21,8 @@ class App extends Component {
         super(props);
         this.state = {
             storeData: [],
-            basket: []
+            basket: [],
+            isAuthenticated: false
         }
     }
 
@@ -29,6 +30,7 @@ class App extends Component {
         let objProps = Object.getOwnPropertyNames(new FDObjectModel());
         const NewParseObject = Parse.Object.extend('FDObjectModel', null, objProps);
         const query = new Parse.Query(NewParseObject);
+        query.limit = 1000;
         let res = await query.find().then((results) => {
             if (typeof document !== 'undefined') {
                 return results;
@@ -54,12 +56,18 @@ class App extends Component {
         });
     };
 
+    isAuthenticated = (isAuth) => {
+        this.setState({
+            isAuthenticated: isAuth
+        })
+    };
+
     updateBasket = (newData) => {
         this.setState({basket: newData})
     };
 
     render() {
-        const {storeData,basket} = this.state;
+        const {storeData, basket} = this.state;
         const count = this.state.basket.length;
         return (
             <Fragment>
@@ -74,7 +82,8 @@ class App extends Component {
                            render={(props) => <StorePage {...props} storeData={storeData}
                                                          addItemToBasket={this.addItem}
                                                          basket={basket}/>}/>
-                    <Route exact path="/login" component={LoginPage}/>
+                    <Route exact path="/login"
+                           render={(props) => <LoginPage {...props} isAuth={this.isAuthenticated}/>}/>
                     <Route exact path='/basket' render={(props) => <FDBasketPage {...props}
                                                                                  basket={basket}
                                                                                  updateBasket={this.updateBasket}

@@ -20,7 +20,7 @@ class MainPage extends Component {
         })
     };
 
-    handleSearch = () => {
+    handleSearch = (event) => {
         this.props.history.push({
             pathname: `/store/search?${this.state.searchText}`,
         });
@@ -31,12 +31,9 @@ class MainPage extends Component {
         return (
             <div className='p-main-search-bar'>
                 <div className='main-page-logo'>MAX SUCCESS</div>
-                <Form>
+                <Form onSubmit={this.handleSearch}>
                     <Form.Group controlId="formSearch">
-                        <Form.Control type="text" placeholder="Search ..." onChange={this.handleSearchInput}
-                                      onKeyDown={event => {
-                                          return event.key === 'Enter' ? this.handleSearch : this.handleSearchInput
-                                      }}/>
+                        <Form.Control type="text" placeholder="Search ..." onChange={this.handleSearchInput}/>
                     </Form.Group>
                     <div className='search-bar-buttons'>
                         <Button variant="secondary" type="button" className='p-main-search-btn'

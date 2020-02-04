@@ -58,6 +58,7 @@ class ManagerPage extends Component {
         };
         reader.readAsText(files[0]);
     };
+
     render() {
         const {data} = this.state;
         return (
@@ -67,7 +68,7 @@ class ManagerPage extends Component {
                 </ReactFileReader>
                 <br/>
                 <br/>
-                {data}
+                {this.props.storeData}
             </Container>
         );
     }

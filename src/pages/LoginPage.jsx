@@ -19,9 +19,11 @@ class LoginPage extends Component {
 
     handleSubmit = () => {
         const {email, password} = this.state;
+        const {isAuth} = this.props;
         //Pass the username and password to logIn function
         Parse.User.logIn(email,password).then((user) => {
             // Do stuff after successful login
+            isAuth(true);
             this.setState({
                 isAuthenticated : true
             });
