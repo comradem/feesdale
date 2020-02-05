@@ -6,14 +6,15 @@ import '../styles/login.css'
 
 import Parse from 'parse';
 
-// import FacebookLogin from 'react-facebook-login';
 
 
 class LoginPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isAuthenticated : false
+            isAuthenticated : false,
+            email : '',
+            password : ''
         }
     }
 
@@ -23,10 +24,11 @@ class LoginPage extends Component {
         //Pass the username and password to logIn function
         Parse.User.logIn(email,password).then((user) => {
             // Do stuff after successful login
-            isAuth(true);
+            // debugger
             this.setState({
                 isAuthenticated : true
             });
+            isAuth(true);
         }).catch(error => {
             // console.error('Error while logging in user', error);
         });
@@ -40,7 +42,7 @@ class LoginPage extends Component {
 
     render(){
         if (this.state.isAuthenticated === true) {
-            this.props.history.push('/manager');
+            this.props.history.push('/manager',this.props.storeData);
         }
         const {email, password} = this.state;
         return (

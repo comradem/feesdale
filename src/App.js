@@ -60,6 +60,7 @@ class App extends Component {
         this.setState({
             isAuthenticated: isAuth
         })
+        console.log('authenticated in APP');
     };
 
     updateBasket = (newData) => {
@@ -83,13 +84,13 @@ class App extends Component {
                                                          addItemToBasket={this.addItem}
                                                          basket={basket}/>}/>
                     <Route exact path="/login"
-                           render={(props) => <LoginPage {...props} isAuth={this.isAuthenticated}/>}/>
+                           render={(props) => <LoginPage {...props} isAuth={this.isAuthenticated}/>} storeData={storeData}/>
                     <Route exact path='/basket' render={(props) => <FDBasketPage {...props}
                                                                                  basket={basket}
                                                                                  updateBasket={this.updateBasket}
                     />}/>
                     <Route exact path='/manager'
-                           render={(props) => <ManagerPage {...props} storeData={storeData}/>}/>
+                           render={(props) => <ManagerPage {...props} storeData={storeData} isAuth={this.state.isAuthenticated}/>}/>
                 </Switch>
                 {/*<FdFooter/>*/}
             </Fragment>

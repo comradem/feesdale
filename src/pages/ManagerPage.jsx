@@ -6,6 +6,7 @@ import ReactFileReader from 'react-file-reader';
 import {processDataFromFile} from '../utils/utils';
 import Parse from 'parse';
 import FDObjectModel from "../orm/FDObjectModel";
+import FDCard from "../components/FDCard";
 
 class ManagerPage extends Component {
 
@@ -60,7 +61,10 @@ class ManagerPage extends Component {
     };
 
     render() {
-        const {data} = this.state;
+        const {storeData, isAuth} = this.props;
+        let data = storeData.map((item, index) => <FDCard key={index} dataObject={item}
+                                                isManager={isAuth}/>);
+        debugger
         return (
             <Container>
                 <ReactFileReader handleFiles={this.handleFiles} fileTypes={'.csv'}>
@@ -68,7 +72,7 @@ class ManagerPage extends Component {
                 </ReactFileReader>
                 <br/>
                 <br/>
-                {this.props.storeData}
+                {data}
             </Container>
         );
     }

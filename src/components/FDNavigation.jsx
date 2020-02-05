@@ -50,7 +50,7 @@ class FDNavigation extends Component {
                                 pathname: '/login'
                             }
                         }>
-                            Sign up
+                            Account
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
