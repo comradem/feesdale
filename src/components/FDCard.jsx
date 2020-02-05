@@ -6,7 +6,7 @@ import '../styles/fd-card.css'
 class FDCard extends Component {
     render() {
         const {productImage,productName,searchKeywords, originalPrice} = this.props.dataObject;
-        const {addItemToBasket} = this.props;
+        const {addItemToBasket,isManager} = this.props;
         return (
             <Card style={{ width: '18rem' }} className='fd-card'>
                 <Card.Img variant="top" src={productImage} />
@@ -22,6 +22,7 @@ class FDCard extends Component {
                         addItemToBasket(ev, this.props.dataObject);
                     }
                     }>Add + </Button>
+                    {isManager ? <Button className='edit-btn' variant='danger'>Edit</Button>:null}
                 </Card.Footer>
             </Card>
         );

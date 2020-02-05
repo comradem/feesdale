@@ -64,7 +64,6 @@ class ManagerPage extends Component {
         const {storeData, isAuth} = this.props;
         let data = storeData.map((item, index) => <FDCard key={index} dataObject={item}
                                                 isManager={isAuth}/>);
-        debugger
         return (
             <Container>
                 <ReactFileReader handleFiles={this.handleFiles} fileTypes={'.csv'}>

@@ -1,7 +1,8 @@
 import React, {Fragment, Component} from 'react';
 import {
     Switch,
-    Route
+    Route,
+    Redirect
 } from "react-router-dom";
 
 import MainPage from '../src/pages/MainPage'
@@ -60,11 +61,16 @@ class App extends Component {
         this.setState({
             isAuthenticated: isAuth
         })
-        console.log('authenticated in APP');
     };
 
     updateBasket = (newData) => {
         this.setState({basket: newData})
+    };
+
+    logout = () => {
+        this.setState({isAuthenticated : false});
+        debugger
+        return <Redirect to='/'  />
     };
 
     render() {
@@ -72,7 +78,7 @@ class App extends Component {
         const count = this.state.basket.length;
         return (
             <Fragment>
-                <FDNavigation numOfSelectedItems={count} basket={this.state.basket}/>
+                <FDNavigation numOfSelectedItems={count} basket={this.state.basket} isAuth={this.state.isAuthenticated} handleLogout={this.logout}/>
                 <Switch>
                     <Route exact path={process.env.PUBLIC_URL + '/'}
                            render={(props) => <MainPage {...props} searchData={storeData}/>}/>

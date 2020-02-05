@@ -12,6 +12,8 @@ class FDNavigation extends Component {
         if (this.props.numOfSelectedItems !== 0) {
             hide = ''
         }
+        const {isAuth, handleLogout} = this.props;
+
         return (
             <Navbar className='sticky-top' collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Navbar.Brand as={Link} to={
@@ -45,12 +47,10 @@ class FDNavigation extends Component {
                                    variant="danger">{this.props.numOfSelectedItems}</Badge>
                             <span className='img_bg'><img src={imgBasket} alt="basket"/></span>
                         </Nav.Link>
-                        <Nav.Link as={Link} to={
-                            {
-                                pathname: '/login'
-                            }
+                        <Nav.Link as={Link} to={isAuth ? {pathname: '/manager'} : {pathname: '/login'}} onClick={() =>
+                            isAuth ? handleLogout() : null
                         }>
-                            Account
+                            {isAuth ? 'Logout' : 'Account'}
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
