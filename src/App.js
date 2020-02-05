@@ -1,12 +1,12 @@
 import React, {Fragment, Component} from 'react';
 import {
     Switch,
-    Route,
-    Redirect
-} from "react-router-dom";
+    Route
+} from "react-router";
 
 import MainPage from '../src/pages/MainPage'
 import LoginPage from "../src/pages/LoginPage";
+import AboutPage from "../src/pages/AboutPage";
 import FDNavigation from "../src/components/FDNavigation";
 import StorePage from "../src/pages/StorePage";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -67,10 +67,26 @@ class App extends Component {
         this.setState({basket: newData})
     };
 
+    updateItem = (e, item) => {
+        const {storeData} = this.state;
+        debugger;
+        switch (e.target.name) {
+            case 'delete':
+                console.log('removing item from the store' + item);
+                storeData.splice(storeData.indexOf(item), 1);
+                break;
+            case 'edit':
+                console.log('editing item' + item);
+                break;
+            default:
+                debugger;
+                break;
+        }
+        this.setState({storeData});
+    };
+
     logout = () => {
-        this.setState({isAuthenticated : false});
-        debugger
-        return <Redirect to='/'  />
+        this.setState({isAuthenticated: false});
     };
 
     render() {
@@ -78,7 +94,8 @@ class App extends Component {
         const count = this.state.basket.length;
         return (
             <Fragment>
-                <FDNavigation numOfSelectedItems={count} basket={this.state.basket} isAuth={this.state.isAuthenticated} handleLogout={this.logout}/>
+                <FDNavigation numOfSelectedItems={count} basket={this.state.basket} isAuth={this.state.isAuthenticated}
+                              handleLogout={this.logout}/>
                 <Switch>
                     <Route exact path={process.env.PUBLIC_URL + '/'}
                            render={(props) => <MainPage {...props} searchData={storeData}/>}/>
@@ -90,13 +107,17 @@ class App extends Component {
                                                          addItemToBasket={this.addItem}
                                                          basket={basket}/>}/>
                     <Route exact path="/login"
-                           render={(props) => <LoginPage {...props} isAuth={this.isAuthenticated}/>} storeData={storeData}/>
+                           render={(props) => <LoginPage {...props} isAuth={this.isAuthenticated}/>}
+                           storeData={storeData}/>
                     <Route exact path='/basket' render={(props) => <FDBasketPage {...props}
                                                                                  basket={basket}
                                                                                  updateBasket={this.updateBasket}
                     />}/>
                     <Route exact path='/manager'
-                           render={(props) => <ManagerPage {...props} storeData={storeData} isAuth={this.state.isAuthenticated}/>}/>
+                           render={(props) => <ManagerPage {...props} storeData={storeData}
+                                                           isAuth={this.state.isAuthenticated}
+                                                           updateData={this.updateItem}/>}/>
+                    <Route exact path='/about' component={AboutPage}/>
                 </Switch>
                 {/*<FdFooter/>*/}
             </Fragment>

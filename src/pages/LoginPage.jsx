@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Container from "react-bootstrap/Container";
 import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
+import {Redirect} from 'react-router';
 import '../styles/login.css'
 
 import Parse from 'parse';
@@ -25,10 +26,10 @@ class LoginPage extends Component {
         Parse.User.logIn(email,password).then((user) => {
             // Do stuff after successful login
             // debugger
+            isAuth(true);
             this.setState({
                 isAuthenticated : true
             });
-            isAuth(true);
         }).catch(error => {
             // console.error('Error while logging in user', error);
         });
@@ -42,7 +43,12 @@ class LoginPage extends Component {
 
     render(){
         if (this.state.isAuthenticated === true) {
-            this.props.history.push('/manager',this.props.storeData);
+            return <Redirect to={{
+                pathname : '/manager',
+                state : this.props.storeData
+            }}
+            />
+            // this.props.history.push('/manager',this.props.storeData);
         }
         const {email, password} = this.state;
         return (

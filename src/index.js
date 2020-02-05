@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter as Router} from 'react-router-dom';
-import {createStore} from 'redux';
+import {HashRouter as Router} from 'react-router-dom';
 import Parse from "parse";
 
 Parse.serverURL = 'https://parseapi.back4app.com'; // This is your Server URL
