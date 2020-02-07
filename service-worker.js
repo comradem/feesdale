@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://comradem.github.io/feesdale/precache-manifest.4fb180b714c0ef6cf39cf7ac1652c532.js"
+  "https://comradem.github.io/feesdale/precache-manifest.99068fd6dc87026407995894c1c34fcd.js"
 );
 
 self.addEventListener('message', (event) => {
