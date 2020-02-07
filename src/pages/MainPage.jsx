@@ -20,7 +20,7 @@ class MainPage extends Component {
         })
     };
 
-    handleSearch = (event) => {
+    handleSearch = () => {
         this.props.history.push({
             pathname: `/store/search?${this.state.searchText}`,
         });

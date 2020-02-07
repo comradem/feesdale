@@ -97,7 +97,7 @@ class App extends Component {
                 <FDNavigation numOfSelectedItems={count} basket={this.state.basket} isAuth={this.state.isAuthenticated}
                               handleLogout={this.logout}/>
                 <Switch>
-                    <Route exact path={process.env.PUBLIC_URL + '/'}
+                    <Route exact path={`/`}
                            render={(props) => <MainPage {...props} searchData={storeData}/>}/>
                     <Route exact path={`/store`} render={(props) => <StorePage {...props} storeData={storeData}
                                                                                addItemToBasket={this.addItem}

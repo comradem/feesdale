@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import {Link} from 'react-router-dom'
 import {withRouter} from 'react-router'
 import Navbar from "react-bootstrap/Navbar";
@@ -6,14 +6,17 @@ import Nav from "react-bootstrap/Nav";
 import '../styles/navigation.css'
 import imgBasket from '../images/shopping-cart24x24.png'
 import Badge from "react-bootstrap/Badge";
+import Form from "react-bootstrap/Form";
 
-class FDNavigation extends Component {
-    render() {
+const FDNavigation = (props)=> {
+
+        const {isAuth, handleLogout, history,numOfSelectedItems} = props;
+        const [text, setText] = useState('');
+
         let hide = 'hidden';
-        if (this.props.numOfSelectedItems !== 0) {
+        if (numOfSelectedItems !== 0) {
             hide = ''
         }
-        const {isAuth, handleLogout} = this.props;
 
         return (
             <Navbar className='sticky-top' collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -37,7 +40,11 @@ class FDNavigation extends Component {
                             }
                         }>About</Nav.Link>
                     </Nav>
-                    <input type="text" placeholder='search' className='search-bar-input'/>
+                    <Form onSubmit={() => history.push({
+                        pathname: `/store/search?${text}`
+                    })}>
+                        <input type="text" placeholder='search' className='search-bar-input' onChange={(event) => setText(event.target.value)}/>
+                    </Form>
                     <Nav>
                         <Nav.Link as={Link} to={
                             {
@@ -45,7 +52,7 @@ class FDNavigation extends Component {
                             }
                         }>
                             <Badge className={`badge badge-pill badge-danger ${hide}`}
-                                   variant="danger">{this.props.numOfSelectedItems}</Badge>
+                                   variant="danger">{numOfSelectedItems}</Badge>
                             <span className='img_bg'><img src={imgBasket} alt="basket"/></span>
                         </Nav.Link>
                         <Nav.Link as={Link} to={isAuth ? {pathname: '/manager'} : {pathname: '/login'}} onClick={() =>
@@ -57,7 +64,6 @@ class FDNavigation extends Component {
                 </Navbar.Collapse>
             </Navbar>
         );
-    }
-}
+};
 
 export default withRouter(FDNavigation);
