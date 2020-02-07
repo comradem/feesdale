@@ -6,7 +6,7 @@ import '../styles/store.css'
 class StorePage extends Component {
 
     render() {
-        let {storeData, addItemToBasket, match} = this.props;
+        let {storeData, addItemToBasket} = this.props;
         let searchText = this.props.match.params.searchText;
 
         //filter out unnecessary items
