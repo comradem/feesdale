@@ -18,7 +18,7 @@ class FDCard extends Component {
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                    {!isManager ? <Button variant="primary" onClick={(ev) => {
+                    {!isManager ? <Button variant="success" onClick={(ev) => {
                         this.props.dataObject.selected = true;
                         addItemToBasket(ev, this.props.dataObject);
                     }

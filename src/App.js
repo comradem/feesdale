@@ -1,7 +1,8 @@
 import React, {Fragment, Component} from 'react';
 import {
     Switch,
-    Route
+    Route,
+    withRouter
 } from "react-router";
 
 import MainPage from '../src/pages/MainPage'
@@ -15,6 +16,7 @@ import ManagerPage from "../src/pages/ManagerPage";
 import Parse from 'parse';
 import FDObjectModel from '../src/orm/FDObjectModel'
 import EmptyPage from "../src/pages/EmptyPage";
+import CheckOutPage from "../src/pages/CheckOutPage";
 
 
 class App extends Component {
@@ -118,6 +120,7 @@ class App extends Component {
                                                            updateData={this.updateItem}/>}/>
                     <Route exact path='/about' component={AboutPage}/>
                     <Route exact path='/empty' render={ props => <EmptyPage {...props}/>}/>
+                    <Route exact path='/checkout' render={ props => <CheckOutPage {...props}/>}/>
                 </Switch>
                 {/*<FdFooter/>*/}
             </Fragment>
@@ -125,4 +128,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default withRouter(App);

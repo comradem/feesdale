@@ -45,7 +45,6 @@ class ManagerPage extends Component {
                 }
                 return myNewObject;
             });
-            debugger
             Parse.Object.saveAll(dataToSave).then(
                 (result) => {
                     if (typeof document !== 'undefined')
