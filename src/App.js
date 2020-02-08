@@ -70,7 +70,6 @@ class App extends Component {
 
     updateItem = (e, item) => {
         const {storeData} = this.state;
-        debugger;
         switch (e.target.name) {
             case 'delete':
                 console.log('removing item from the store' + item);
@@ -80,7 +79,6 @@ class App extends Component {
                 console.log('editing item' + item);
                 break;
             default:
-                debugger;
                 break;
         }
         this.setState({storeData});

@@ -18,11 +18,11 @@ class FDCard extends Component {
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                    <Button variant="primary" onClick={(ev) => {
+                { !isManager ? <Button variant="primary" onClick={(ev) => {
                         this.props.dataObject.selected = true;
                         addItemToBasket(ev, this.props.dataObject);
                     }
-                    }>Add + </Button>
+                    }>Add + </Button> : null}
                     {isManager ?
                         <Fragment>
                             <Button className='edit-btn' name='edit' variant='danger'
