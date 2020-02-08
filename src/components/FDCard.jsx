@@ -1,4 +1,4 @@
-import React, {Component,Fragment} from 'react';
+import React, {Component, Fragment} from 'react';
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
@@ -18,7 +18,7 @@ class FDCard extends Component {
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                { !isManager ? <Button variant="primary" onClick={(ev) => {
+                    {!isManager ? <Button variant="primary" onClick={(ev) => {
                         this.props.dataObject.selected = true;
                         addItemToBasket(ev, this.props.dataObject);
                     }
