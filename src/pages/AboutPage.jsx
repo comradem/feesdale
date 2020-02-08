@@ -4,7 +4,7 @@ import '../styles/about.css'
 class AboutPage extends Component {
     render() {
         return (
-            <div className='container'>
+            <div className='p-about-container'>
                 <div>
                     MAX Success
                     <br/>

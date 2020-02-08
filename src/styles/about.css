@@ -1,20 +1,20 @@
-.container {
-    margin: 30%;
+.p-about-container {
+    margin: auto;
     text-align: center;
 }
 
 
 
 @media only screen and (max-width: 380px) {
-    .container {
-        margin: 30%;
+    .p-about-container {
+        margin: auto;
         text-align: center;
     }
 }
 
 @media only screen and (max-width: 768px) {
-    .container {
-        margin: 30%;
+    .p-about-container {
+        margin: auto;
         text-align: center;
     }
 }

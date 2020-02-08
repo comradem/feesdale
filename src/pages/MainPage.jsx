@@ -41,7 +41,9 @@ class MainPage extends Component {
                         >
                             Search
                         </Button>
-                        <Button variant="secondary" type="button" className='p-main-search-btn '>
+                        <Button variant="secondary" type="button" className='p-main-search-btn' onClick={() => this.props.history.push({
+                            pathname: `/store`
+                        })}>
                             Find for me
                         </Button>
                     </div>

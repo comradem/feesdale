@@ -14,6 +14,7 @@ import FDBasketPage from "../src/pages/FDBasketPage";
 import ManagerPage from "../src/pages/ManagerPage";
 import Parse from 'parse';
 import FDObjectModel from '../src/orm/FDObjectModel'
+import EmptyPage from "../src/pages/EmptyPage";
 
 
 class App extends Component {
@@ -118,6 +119,7 @@ class App extends Component {
                                                            isAuth={this.state.isAuthenticated}
                                                            updateData={this.updateItem}/>}/>
                     <Route exact path='/about' component={AboutPage}/>
+                    <Route exact path='/empty' render={ props => <EmptyPage {...props}/>}/>
                 </Switch>
                 {/*<FdFooter/>*/}
             </Fragment>
