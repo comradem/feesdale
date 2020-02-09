@@ -79,7 +79,7 @@ function CheckOutPage(props) {
                         });
                     }}
                 />
-                <Button variant="danger" block>Warning!!! Clicking here will clear the basket and take you to main page</Button>
+                <Button variant="danger" onClick={handleSubmit} block>Warning!!! Clicking here will clear the basket and take you to main page</Button>
             </Form>
         </Container>
     );
