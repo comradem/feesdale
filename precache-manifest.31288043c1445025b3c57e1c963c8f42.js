@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ac0b6989479087485ece1c08d2b232c8",
+    "revision": "faddff2b3872741e0bb5c33b132e2e29",
     "url": "https://comradem.github.io/feesdale/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://comradem.github.io/feesdale/static/css/2.47e06e2e.chunk.css"
   },
   {
-    "revision": "bb3a7d82e5bbb17c3815",
+    "revision": "c60c97f3acb045531d85",
     "url": "https://comradem.github.io/feesdale/static/css/main.7590ec9a.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://comradem.github.io/feesdale/static/js/2.e8f4c4f5.chunk.js.LICENSE"
   },
   {
-    "revision": "bb3a7d82e5bbb17c3815",
-    "url": "https://comradem.github.io/feesdale/static/js/main.6fb38f4d.chunk.js"
+    "revision": "c60c97f3acb045531d85",
+    "url": "https://comradem.github.io/feesdale/static/js/main.20e3c05c.chunk.js"
   },
   {
     "revision": "cea3f5546acb05a43d66",
