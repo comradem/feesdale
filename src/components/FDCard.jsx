@@ -6,7 +6,7 @@ import '../styles/fd-card.css'
 
 class FDCard extends Component {
     render() {
-        const {productImage, productName, searchKeywords, originalPrice} = this.props.dataObject;
+        const {productImage, productName, originalPrice} = this.props.dataObject;
         const {addItemToBasket, isManager, dataObject, updateData} = this.props;
         return (
             <Card style={{width: '18rem'}} className='fd-card'>

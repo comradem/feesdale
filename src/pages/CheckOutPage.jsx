@@ -17,7 +17,7 @@ function CheckOutPage(props) {
     if (clear) return <Redirect to={{
         pathname: '/store'
     }}/>;
-    let sum = data.reduce((sum, next) => sum + parseFloat(next.originalPrice), 0);
+    let sum = data.reduce((sum, next) => sum + parseFloat(next.originalPrice)*next.quantity, 0);
 
 
     return (

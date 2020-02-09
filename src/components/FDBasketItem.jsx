@@ -6,16 +6,28 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 
 class FdBasketItem extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            quantity : 1
+        }
+    }
+
 
     removeThisItem = () => {
         const {dataObject,removeItem} = this.props;
         removeItem(dataObject.productId);
     };
 
-    handleQuantity = (event) => {
-
-   //TODO
-
+    handleQuantity = (eventKey,event) => {
+        const {dataObject,removeItem} = this.props;
+        if(eventKey === '0') {
+            removeItem(dataObject.productId);
+        } else {
+            let num = parseInt(eventKey);
+            dataObject.quantity = num;
+            this.setState({quantity: num});
+        }
     };
 
     render() {
@@ -34,16 +46,16 @@ class FdBasketItem extends Component {
                 <Card.Footer>
                     <DropdownButton
                         variant="outline-secondary"
-                        title="Quantity"
+                        title={`${this.state.quantity}`}
                         id="input-group-dropdown-1">
-                        <Dropdown.Item href="#" onClick={this.handleQuantity} eventKey='1'>0(delete)</Dropdown.Item>
+                        <Dropdown.Item href="#" onSelect={this.handleQuantity} eventKey='1'>0(delete)</Dropdown.Item>
                         <Dropdown.Divider />
-                        <Dropdown.Item href="#" onClick={this.handleQuantity} eventKey='1'>1</Dropdown.Item>
-                        <Dropdown.Item href="#" onClick={this.handleQuantity} eventKey='2'>2</Dropdown.Item>
-                        <Dropdown.Item href="#" onClick={this.handleQuantity} eventKey='3'>3</Dropdown.Item>
-                        <Dropdown.Item href="#" onClick={this.handleQuantity} eventKey='4'>4</Dropdown.Item>
+                        <Dropdown.Item href="#" onSelect={this.handleQuantity} eventKey='1'>1</Dropdown.Item>
+                        <Dropdown.Item href="#" onSelect={this.handleQuantity} eventKey='2'>2</Dropdown.Item>
+                        <Dropdown.Item href="#" onSelect={this.handleQuantity} eventKey='3'>3</Dropdown.Item>
+                        <Dropdown.Item href="#" onSelect={this.handleQuantity} eventKey='4'>4</Dropdown.Item>
                         <Dropdown.Divider />
-                        <Dropdown.Item href="#" onClick={this.handleQuantity} eventKey='5'>5+</Dropdown.Item>
+                        <Dropdown.Item href="#" onSelect={this.handleQuantity} eventKey='5'>5+</Dropdown.Item>
                     </DropdownButton>
                     <Button variant="secondary" onClick={this.removeThisItem}>Remove</Button>
                 </Card.Footer>
