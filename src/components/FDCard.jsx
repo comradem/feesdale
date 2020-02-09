@@ -8,12 +8,13 @@ import '../styles/fd-card.css'
 
 const FDCard = (props) => {
 
-    const {productImage, productName, originalPrice, } = props.dataObject;
+    const {productImage, productName, originalPrice, searchKeywords} = props.dataObject;
     const {addItemToBasket, isManager, dataObject, updateData} = props;
     const [showModal, setShowModal] = useState(false);
     const [newPrice, setNewPrice] = useState(originalPrice);
     const [newProductImage, setNewProductImage] = useState(productImage);
     const [newProductName, setNewProductName] = useState(productName);
+    const [newSearchKeywords, setNewSearchKeywords] = useState(searchKeywords);
 
     const handleEdit = () => {
         open();
@@ -45,6 +46,11 @@ const FDCard = (props) => {
     const handleProductNameChange = (e) => {
         dataObject.productName = e.target.value;
         setNewProductName(e.target.value);
+    };
+
+    const handleKeywordsChange = (e) => {
+        dataObject.searchKeywords = dataObject.searchKeywords.concat(e.target.value.split(','));
+        setNewSearchKeywords(e.target.value);
     };
 
 
@@ -90,6 +96,10 @@ const FDCard = (props) => {
                                     <Form.Group controlId="formOriginalPrice">
                                         <Form.Label>Price</Form.Label>
                                         <Form.Control placeholder="price" value={newPrice} onChange={(e) => handlePriceChange(e)}/>
+                                    </Form.Group>
+                                    <Form.Group controlId="formSearchKeywords">
+                                        <Form.Label>Keywords</Form.Label>
+                                        <Form.Control placeholder="comma separated values" value={newSearchKeywords} onChange={(e) => handleKeywordsChange(e)}/>
                                     </Form.Group>
                                     <Button bsStyle="primary" type='button'
                                             onClick={(e) => handleItemUpdate(e)}>Save changes</Button>
