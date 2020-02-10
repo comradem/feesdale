@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {withRouter} from 'react-router-dom';
+import React, {Component,Fragment} from 'react';
+import {withRouter} from 'react-router';
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import ReactFileReader from 'react-file-reader';
@@ -8,6 +8,7 @@ import Parse from 'parse';
 import FDObjectModel from "../orm/FDObjectModel";
 import {Redirect} from 'react-router'
 import FDCard from "../components/FDCard";
+import '../styles/manager.css'
 
 class ManagerPage extends Component {
 
@@ -66,14 +67,16 @@ class ManagerPage extends Component {
         let data = storeData.map((item, index) => <FDCard key={index} dataObject={item}
                                                           isManager={isAuth} updateData={updateData}/>);
         return (
-            <Container>
+            <Fragment>
                 <ReactFileReader handleFiles={this.handleFiles} fileTypes={'.csv'}>
                     <Button>Load File</Button>
                 </ReactFileReader>
                 <br/>
                 <br/>
-                {data}
-            </Container>
+                <Container className='p-manager'>
+                    {data}
+                </Container>
+            </Fragment>
         );
     }
 }
